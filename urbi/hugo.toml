@@ -1,6 +1,6 @@
 baseURL = 'https://example.org/'
 languageCode = 'en-us'
-title = 'Urban Inequalities'
+title = 'Urban Inequalities Website'
 theme = 'beautifulhugo'
 
 DefaultContentLanguage = "en"
