@@ -19,7 +19,7 @@ jobs:
           extended: true
 
       - name: Build site
-        run: hugo --minify
-        
+        run: cd urbi && hugo --minify
+
       - name: Send update notification
         run: curl -L "${{ secrets.UPDATE_URL }}"
