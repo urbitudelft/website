@@ -1,0 +1,25 @@
+name: website update
+
+on: 
+  push:
+    branches: 
+      - main
+
+jobs:
+  build-and-notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: 'latest'
+          extended: true
+
+      - name: Build site
+        run: hugo --minify
+        
+      - name: Send update notification
+        run: curl -L "${{ secrets.UPDATE_URL }}"
