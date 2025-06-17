@@ -19,8 +19,6 @@ if (file_exists($env_path)) {
 
 $secret = $_ENV['SECRET_TOKEN'] ?? '';
 
-echo $_GET['token'];
-
 if (!isset($_GET['token']) || $_GET['token'] !== $secret) {
     http_response_code(403);
     echo "Forbidden. You need to provide the right token";
