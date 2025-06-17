@@ -1,6 +1,6 @@
 baseURL = 'http://urbi01.bk.tudelft.nl/'
 languageCode = 'en-us'
-title = 'Urban Inequalities'
+title = 'Urban Inequalities Lab'
 theme = 'beautifulhugo'
 
 DefaultContentLanguage = "en"
