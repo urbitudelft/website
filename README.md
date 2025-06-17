@@ -13,5 +13,7 @@ hugo serve
 
 3. Navigate to [http://localhost:1313/](http://localhost:1313/) (or where hugo directs you) to see the local built of your website.
 
+## Automatic update
+
 
 
