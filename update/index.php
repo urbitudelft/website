@@ -29,17 +29,21 @@ else {
 }
 
 echo "<h1>Git pull</h1><pre><code>";
+echo "$ git -C $repository_path fetch origin main\n";
 system("git -C $repository_path fetch origin main 2>&1");
+echo "$ git -C $repository_path checkout main\n";
 system("git -C $repository_path checkout main 2>&1");
+echo "$ git -C $repository_path pull origin main\n";
 system("git -C $repository_path pull origin main 2>&1");
 echo "</code></pre>";
 
 echo "<h1>Hugo build</h1><pre><code>";
-echo "$ hugo --source $ubri_path  --destination $ubri_path /public\n";
+echo "$ cd $ubri_path && hugo\n";
 system("cd $ubri_path && hugo ");
 echo "</code></pre>";
 
 echo "<h1>Nginx reload</h1><pre><code>";
+echo "$ sudo systemctl reload nginx\n";
 system("sudo systemctl reload nginx 2>&1");
 echo "</code></pre>";
 ?>
