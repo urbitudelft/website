@@ -25,19 +25,21 @@ if (!isset($_GET['token']) || $_GET['token'] !== $secret) {
     exit;
 }
 else {
-    echo "Token is valid. Proceeding with update.";
+    echo "<h1>Token is valid. Proceeding with update.</h1>";
 }
 
 echo "<h1>Git pull</h1><pre><code>";
-echo "$ git -C $repository_path fetch\n";
-system("git -C $repository_path fetch 2>&1");
-
-echo "$ git -C $repository_path checkout origin/main\n";
-system("git -C $repository_path checkout origin/main 2>&1");
+system("git -C $repository_path fetch origin main 2>&1");
+system("git -C $repository_path checkout main 2>&1");
+system("git -C $repository_path pull origin main 2>&1");
 echo "</code></pre>";
 
 echo "<h1>Hugo build</h1><pre><code>";
 echo "$ hugo --source $ubri_path  --destination $ubri_path /public\n";
 system("cd $ubri_path && hugo ");
+echo "</code></pre>";
+
+echo "<h1>Nginx reload</h1><pre><code>";
+system("sudo systemctl reload nginx 2>&1");
 echo "</code></pre>";
 ?>
