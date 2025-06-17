@@ -44,8 +44,6 @@ echo "$ cd $ubri_path && hugo\n";
 system("cd $ubri_path && hugo ");
 echo "</code></pre>";
 
-echo "<h1>Nginx reload</h1><pre><code>";
-echo "$ systemctl reload nginx\n";
-system("systemctl reload nginx 2>&1");
-echo "</code></pre>";
+echo "<h1>Website successfully updated!</h1><pre><code>";
+
 ?>
