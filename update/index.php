@@ -3,8 +3,20 @@
 
 $repository_path = '/var/www/website';
 
-// Only allow requests from localhost for security
-if ($_SERVER['REMOTE_ADDR'] !== '127.0.0.1') {
+// Load .env file
+$env_path = __DIR__ . '/.env';
+if (file_exists($env_path)) {
+    $lines = file($env_path, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+    foreach ($lines as $line) {
+        if (strpos(trim($line), '#') === 0) continue;
+        list($name, $value) = explode('=', $line, 2);
+        $_ENV[trim($name)] = trim($value);
+    }
+}
+
+$secret = $_ENV['SECRET_TOKEN'] ?? '';
+
+if (!isset($_GET['token']) || $_GET['token'] !== $secret) {
     http_response_code(403);
     echo "Forbidden";
     exit;
