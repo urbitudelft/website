@@ -18,8 +18,8 @@ jobs:
           hugo-version: 'latest'
           extended: true
 
-      - name: Build site
-        run: cd urbi && hugo --minify
+      # - name: Build site
+      #   run: cd urbi && hugo --minify
 
       - name: Send update notification
         run: curl -L "${{ secrets.UPDATE_URL }}"
