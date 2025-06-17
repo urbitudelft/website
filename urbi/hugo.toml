@@ -20,7 +20,7 @@ pygmentsCodefencesGuessSyntax = true
 
 [Params]
 #  homeTitle = "Beautiful Hugo Theme" # Set a different text for the header on the home page
-  subtitle = "Build a beautiful and simple website in minutes"
+  subtitle = "Research on Urban Inequalities by the department of Urbanism, TU Delft"
   mainSections = ["post","posts"]
   logo = "img/urbi.png" # Expecting square dimensions
   favicon = "img/urbi_favicon.ico"
@@ -54,9 +54,9 @@ pygmentsCodefencesGuessSyntax = true
 [Params.author]
   # Set only your "username" for default hosts and full URLs otherwise (e.g., "https://MyGitLab.org/username")
   name = "Urban Inequalities Lab"
-  website = "yourwebsite.com" # The urbi website
+  website = "http://urbi01.bk.tudelft.nl/" # The urbi website
   email = "youremail@domain.com" # The Urbi EMail
-  github = "username" # The Urbi Github Org
+  github = "https://github.com/urbitudelft" # The Urbi Github Org
 
 
 [[menu.main]]
