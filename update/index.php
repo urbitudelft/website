@@ -26,6 +26,9 @@ if (!isset($_GET['token']) || $_GET['token'] !== $secret) {
     echo "Forbidden. You need to provide the right token";
     exit;
 }
+else {
+    echo "Token is valid. Proceeding with update.";
+}
 
 echo "<h1>Git pull</h1><pre><code>";
 echo "$ git -C $repository_path fetch\n";
