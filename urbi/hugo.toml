@@ -20,7 +20,7 @@ pygmentsCodefencesGuessSyntax = true
 
 [Params]
 #  homeTitle = "Beautiful Hugo Theme" # Set a different text for the header on the home page
-  subtitle = "Research on Urban Inequalities by the department of Urbanism, TU Delft"
+  subtitle = "Research on Urban Inequalities by the Urban Studies section in the department of Urbanism, TU Delft"
   mainSections = ["post","posts"]
   logo = "img/urbi.png" # Expecting square dimensions
   favicon = "img/urbi_favicon.ico"
