@@ -1,4 +1,4 @@
-baseURL = 'http://urbi01.bk.tudelft.nl/'
+baseURL = 'https://urbi01.bk.tudelft.nl/'
 languageCode = 'en-us'
 title = 'Urban Inequalities Lab'
 theme = 'beautifulhugo'
@@ -54,7 +54,7 @@ pygmentsCodefencesGuessSyntax = true
 [Params.author]
   # Set only your "username" for default hosts and full URLs otherwise (e.g., "https://MyGitLab.org/username")
   name = "Urban Inequalities Lab"
-  website = "http://urbi01.bk.tudelft.nl/" # The urbi website
+  website = "https://urbi.bk.tudelft.nl/" # The urbi website
   email = "youremail@domain.com" # The Urbi EMail
   github = "https://github.com/urbitudelft" # The Urbi Github Org
 
