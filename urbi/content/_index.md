@@ -4,19 +4,28 @@ title:
 date: 2022-10-24
 type: landing
 
+
 sections:
-  - block: hero
+  - block: markdown
     content:
-      title: |
-        Wowchemy
-        Research Group
-      image:
-        filename: welcome.jpg
-      text: |
-        <br>
-        
-        The **Wowchemy Research Group** has been a center of excellence for Artificial Intelligence research, teaching, and practice since its founding in 2016.
-  
+      title:
+      subtitle: ''
+      text:
+    design:
+      columns: '1'
+      background:
+        image: 
+          filename: logo_urbi_complete_3levels.png
+          filters:
+            brightness: 1
+          parallax: false
+          position: center
+          size: contain
+          text_color_light: true
+      spacing:
+        padding: ['0', '0', '0', '0']
+      css_class: fullscreen
+ 
   - block: collection
     content:
       title: Latest News
