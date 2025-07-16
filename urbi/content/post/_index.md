@@ -1,8 +1,8 @@
 ---
-title: Latest News
+title: Research Themes
 
 # Listing view
-view: compact
+view: card
 
 # Optional banner image (relative to `assets/media/` folder).
 banner:
