@@ -67,22 +67,27 @@ sections:
               brightness: 0.7
           position: right
           color: '#666'
-      - title: Lunch & Learn ☕️
-        content: 'Share your knowledge with the group and explore exciting new topics together!'
+      - title: Neighbourhood effects
+        content: 'Lorem ipsum'
         align: left
         background:
           image:
-            filename: contact.jpg
+            filename: nbh-effects.jpg
             filters:
               brightness: 0.7
           position: center
           color: '#555'
-      - title: World-Class Semiconductor Lab
-        content: 'Just opened last month!'
+        link:
+          icon: graduation-cap
+          icon_pack: fas
+          text: See more
+          url: ../post/nbh-effects/
+      - title: Multiscale bespoke neighbourhoods
+        content: 'Lorem ipsum'
         align: right
         background:
           image:
-            filename: welcome.jpg
+            filename: multiscale-bespoke-nbh.jpg
             filters:
               brightness: 0.5
           position: center
@@ -90,8 +95,8 @@ sections:
         link:
           icon: graduation-cap
           icon_pack: fas
-          text: Join Us
-          url: ../contact/
+          text: See more
+          url: ../post/multiscale-bespoke-neighbourhoods/
     design:
       # Slide height is automatic unless you force a specific height (e.g. '400px')
       slide_height: ''
