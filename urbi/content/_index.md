@@ -31,33 +31,15 @@ sections:
       title: About us (catchier title)
       subtitle: ''
       text: |
-        <p style="text-align:center;">Brief description of the URBI research group, its mission, and what it does. This section should be engaging and informative, providing a clear overview of the group's focus and activities.</p>
+        <p style="text-align:center;">Brief description of the URBI research group, its mission, and what it does. This section should be engaging and informative, providing a clear overview of the group's focus and activities.
+         {{% cta cta_link="./people/" cta_text="Meet the team →" %}}</p>
     design:
       columns: '1'
-
-  - block: collection
-    content:
-      title: Research Themes
-      subtitle:  Explore our key research themes (think of a better description) 
-      text:
-      count: 5
-      filters:
-        author: ''
-        category: ''
-        exclude_featured: false
-        publication_type: ''
-        tag: ''
-      offset: 0
-      order: desc
-      page_type: post
-    design:
-      view: card
-      columns: '2'
 
   - block: slider
     content:
       slides:
-      - title: Research themes (option b)
+      - title: Research themes
         content: Take a look at what we're working on...
         align: center
         background:
@@ -81,7 +63,7 @@ sections:
           icon: graduation-cap
           icon_pack: fas
           text: See more
-          url: ../post/nbh-effects/
+          url: ../project/nbh-effects/
       - title: Multiscale bespoke neighbourhoods
         content: 'Lorem ipsum'
         align: right
@@ -96,7 +78,7 @@ sections:
           icon: graduation-cap
           icon_pack: fas
           text: See more
-          url: ../post/multiscale-bespoke-neighbourhoods/
+          url: ../project/multiscale-bespoke-neighbourhoods/
     design:
       # Slide height is automatic unless you force a specific height (e.g. '400px')
       slide_height: ''
@@ -105,6 +87,25 @@ sections:
       loop: false
       # Duration of transition between slides (in ms)
       interval: 2000
+
+  - block: collection
+    content:
+      title: News
+      subtitle: 
+      text:
+      count: 5
+      filters:
+        author: ''
+        category: ''
+        exclude_featured: false
+        publication_type: ''
+        tag: ''
+      offset: 0
+      order: desc
+      page_type: post
+    design:
+      view: compact
+      columns: '1'
 
   - block: collection
     content:
@@ -121,7 +122,7 @@ sections:
 
   - block: collection
     content:
-      title: News and Events
+      title: Events
       subtitle:
       text:
       count: 5
@@ -138,12 +139,4 @@ sections:
       view: card
       columns: '1'
 
-  - block: markdown
-    content:
-      title:
-      subtitle:
-      text: |
-        {{% cta cta_link="./people/" cta_text="Meet the team →" %}}
-    design:
-      columns: '1'
 ---

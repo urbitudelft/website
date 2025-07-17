@@ -1,5 +1,5 @@
 ---
-title: News
+title: Research Themes
 
 # Listing view
 view: card

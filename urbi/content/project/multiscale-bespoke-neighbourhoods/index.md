@@ -1,15 +1,35 @@
 ---
-title: Neighbourhood effects
-date: 2025-07-16
+# Documentation: https://docs.hugoblox.com/managing-content/
+
+title: Multiscale bespoke neighbourhoods
+subtitle: ""
+summary: "Summary of the theme (for shorter display in lists)."
+authors: []
+tags: [Multiscale bespoke neighbourhoods]
+categories: []
+date: 2025-07-17T10:22:33+02:00
+lastmod: 2025-07-17T10:22:33+02:00
+featured: false
+draft: false
+
+# Featured image
+# To use, add an image named `featured.jpg/png` to your page's folder.
+# Focal points: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight.
 image:
-  focal_point: 'top'
-reading_time: false
-show_date: false
+  caption: ""
+  focal_point: ""
+  preview_only: false
+
+# Projects (optional).
+#   Associate this post with one or more of your projects.
+#   Simply enter your project's folder or file name without extension.
+#   E.g. `projects = ["internal-project"]` references `content/project/deep-learning/index.md`.
+#   Otherwise, set `projects = []`.
+projects: []
+
+profile: false
 ---
 
-Introduction to the problem it solves or motivation as a hook for the reader.  
-
-<!--more-->
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer tempus augue non tempor egestas. Proin nisl nunc, dignissim in accumsan dapibus, auctor ullamcorper neque. Quisque at elit felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Aenean eget elementum odio. Cras interdum eget risus sit amet aliquet. In volutpat, nisl ut fringilla dignissim, arcu nisl suscipit ante, at accumsan sapien nisl eu eros.
 

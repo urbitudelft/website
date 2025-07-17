@@ -18,15 +18,15 @@ organizations:
     url: ''
 
 # Short bio (displayed in user profile at end of posts)
-bio: My research applies urban data science to investigate the evolution of sociospatial inequalities over time and across spatial scales.
+bio: My research applies geographic data science to investigate the evolution of sociospatial inequalities over time and across spatial scales.
 
 interests:
   - Segregation
   - Neighbourhood Effects
-  - Geodemographics
+  - Urban Analytics
   - Spatial Scale
   - Neighbourhood Dynamics
-  - Urban Data Science
+  - Geographic Data Science
 
 education:
   courses:

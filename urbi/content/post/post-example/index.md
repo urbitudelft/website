@@ -1,13 +1,14 @@
 ---
-title: Multiscale bespoke neighbourhoods
+title: Blog Post Example - News 1
 date: 2025-07-16
 image:
   focal_point: 'top'
 reading_time: false
 show_date: false
+profile: false
 ---
 
-Introduction to the problem it solves or motivation as a hook for the reader.  
+Summary of the news or post
 
 <!--more-->
 
