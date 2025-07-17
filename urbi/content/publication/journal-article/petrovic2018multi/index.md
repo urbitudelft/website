@@ -18,7 +18,7 @@ publishDate: "2025-07-15T00:00:00Z"
 publication_types: ["article-journal"]
 
 # Publication name and optional abbreviated publication name.
-publication: "*Annals of the American Association of Geographers, 108(4)*, 1057-1074."
+publication: "*Annals of the American Association of Geographers, 108(4)*, 1057-1074"
 publication_short: ""
 
 abstract: Appreciating spatial scale is crucial for our understanding of the sociospatial context. Multiscale measures of population have been developed in the segregation and neighborhood effects literatures, which have acknowledged the role of a variety of spatial contexts for individual outcomes and intergroup contacts. Although existing studies dealing with sociospatial inequalities increasingly explore the effects of spatial scale, there has been little systematic evidence on how exposure to sociospatial contexts changes across urban space, both within and between cities. This article presents a multiscale approach to measuring potential exposure to others. Using individual-level register data for the full population of The Netherlands and an exceptionally detailed multiscalar framework of bespoke neighborhoods at 101 spatial scales, we measured the share of non-Western ethnic minorities for three Dutch cities with different urban forms. We created individual and cumulative distance profiles of ethnic exposure, mapped ethnic exposure surfaces, and applied entropy as a measure of scalar variation to compare potential exposure to others in different locations both within and between cities. The multiscale approach can be implemented for examining a variety of social processes, notably segregation and neighborhood effects.
