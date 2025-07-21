@@ -28,7 +28,7 @@ sections:
 
   - block: markdown
     content:
-      title: About us (catchier title)
+      title: About us
       subtitle: ''
       text: |
         <p style="text-align:center;">Brief description of the URBI research group, its mission, and what it does. This section should be engaging and informative, providing a clear overview of the group's focus and activities.
