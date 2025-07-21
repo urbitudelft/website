@@ -7,6 +7,8 @@ Urban Inequalities Website Repository
 
 2. Run:
 ```bash
+sudo snap install go --classic
+git submodule update --init --recursive
 cd urbi
 hugo serve
 ```
