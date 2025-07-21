@@ -7,6 +7,7 @@ Urban Inequalities Website Repository
 
 2. Run:
 ```bash
+git submodule update --init --recursive
 cd urbi
 hugo serve
 ```
