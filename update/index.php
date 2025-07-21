@@ -41,7 +41,7 @@ echo "</code></pre>";
 
 echo "<h1>Hugo build</h1><pre><code>";
 echo "$ cd $ubri_path && hugo\n";
-system("cd $ubri_path && hugo ");
+system("cd $ubri_path && hugo 2>&1");
 echo "</code></pre>";
 
 echo "<h1>Website successfully updated!</h1><pre><code>";
