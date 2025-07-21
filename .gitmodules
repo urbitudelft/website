@@ -1,3 +1,6 @@
 [submodule "urbi/themes/beautifulhugo"]
 	path = urbi/themes/beautifulhugo
 	url = https://github.com/halogenica/beautifulhugo.git
+[submodule "urbi/themes/wowchemy-research-group"]
+	path = urbi/themes/wowchemy-research-group
+	url = https://github.com/wowchemy/starter-hugo-research-group.git
