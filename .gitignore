@@ -3,7 +3,6 @@ urbi/.idea/
 
 # Hugo
 urbi/resources/*
-urbi/assets/jsconfig.json
 urbi/archetypes/*
 urbi/public/*
 urbi/.hugo_build.lock
