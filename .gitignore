@@ -8,3 +8,4 @@ urbi/archetypes/*
 urbi/public/*
 urbi/.hugo_build.lock
 urbi/.hugo_cache/*
+update/.env
