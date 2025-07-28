@@ -29,7 +29,7 @@ summary: "**Highlights:** i) We propose a novel way of studying the spatio-tempo
 
 tags:
 - Multiscale bespoke neighbourhoods
-featured: false
+featured: true
 
 # Custom links (uncomment lines below)
 # links:
