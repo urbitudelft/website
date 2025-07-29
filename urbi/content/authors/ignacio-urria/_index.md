@@ -75,6 +75,9 @@ social:
   - icon: github
     icon_pack: fab
     link: https://github.com/iurriayanez
+  - icon: orcid
+    icon_pack: ai
+    link: https://orcid.org/0009-0005-0912-7627  
 # Link to a PDF of your resume/CV from the About widget.
 # To enable, copy your resume/CV to `static/files/cv.pdf` and uncomment the lines below.
   - icon: cv
@@ -93,5 +96,6 @@ user_groups:
   - Researchers
 ---
 
-**Longer Bio Here.** Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Ignacio is a researcher from Chile and currently a Ph.D. candidate in Urban Studies at the Department of Urbanism at TU Delft. His work explores the spatio-temporal evolution of sociospatial inequalities using administrative microdata from the Netherlands, with a focus on integrating multivariate, multiscalar and longitudinal methods. His research interests include urban segregation, neighbourhood effects, labour markets and geographic data science.
 
+He began his academic career as a research assistant on projects related to housing markets, segregation, and labour dynamics. He then worked at the Chilean Ministry of Social Development, where he coordinated a team focused on developing geospatial indicators to inform social policy and benefit allocation. That experience reinforced his interest in spatial inequalities and led him back into academia. He holds a B.Sc. and M.Sc. in Economics from the University of Chile and an M.Sc. in Human Geography from Utrecht University.
