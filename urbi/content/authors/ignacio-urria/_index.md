@@ -31,16 +31,16 @@ interests:
 education:
   courses:
     - course: PhD (c) in Urban Studies
-      institution: Delft University of Technology
+      institution: Faculty of Architecture and the Built Environment, Delft University of Technology
       year: Present
     - course: MSc in Human Geography 
-      institution: Utrecht University
+      institution: Faculty of Geosciences, Utrecht University
       year: 2022
     - course: MSc in Applied Economics
-      institution: Universidad de Chile
+      institution: Faculty of Economics and Business, Universidad de Chile
       year: 2019
     - course: BSc in Economics
-      institution: Universidad de Chile
+      institution: Faculty of Economics and Business, Universidad de Chile
       year: 2017
 
 work:
@@ -48,6 +48,9 @@ work:
     - job: PhD Researcher 
       institution: Department of Urbanism, Delft University of Technology
       year: 2023 - Present
+    - job: Intern
+      institution: Organisation for Economic Co-operation and Development (OECD)
+      year: 2025
     - job: Coordinator of the Territorial Analysis Unit 
       institution: Department of Studies, Ministry of Social Development and Family, Chile
       year: 2022
@@ -55,7 +58,7 @@ work:
       institution: Department of Studies, Ministry of Social Development and Family, Chile
       year: 2020-2022
     - job: Research Assistant
-      institution: Universidad de Chile and Pontificia Universidad Católica de Chile
+      institution: Department of Economics, Universidad de Chile and Pontificia Universidad Católica de Chile
       year: 2017-2020
 
 # Social/Academic Networking
@@ -96,6 +99,6 @@ user_groups:
   - Researchers
 ---
 
-Ignacio is a researcher from Chile and currently a Ph.D. candidate in Urban Studies at the Department of Urbanism at TU Delft. His work explores the spatio-temporal evolution of sociospatial inequalities using administrative microdata from the Netherlands, with a focus on integrating multivariate, multiscalar and longitudinal methods. His research interests include urban segregation, neighbourhood effects, labour markets and geographic data science.
+I am a researcher from Chile and currently a Ph.D. candidate in Urban Studies at the Department of Urbanism at TU Delft. My work explores the spatio-temporal evolution of sociospatial inequalities using administrative microdata from the Netherlands. In particular, my research focuses on integrating multivariate, multiscalar and longitudinal methods to better undertand the causes, patterns and consequences of urban inequalities. I am also interested in the role of time and space in the analysis of social stratification and how these concepts can be operationalized in urban analytics.
 
-He began his academic career as a research assistant on projects related to housing markets, segregation, and labour dynamics. He then worked at the Chilean Ministry of Social Development, where he coordinated a team focused on developing geospatial indicators to inform social policy and benefit allocation. That experience reinforced his interest in spatial inequalities and led him back into academia. He holds a B.Sc. and M.Sc. in Economics from the University of Chile and an M.Sc. in Human Geography from Utrecht University.
+I began my academic career as a research assistant on projects related to housing markets, segregation, and labour dynamics. I then worked at the Chilean Ministry of Social Development, where I coordinated a team focused on developing geospatial indicators to inform social policy and benefit allocation. That experience reinforced my interest in spatial inequalities and led me back into academia. I hold a B.Sc. and M.Sc. in Economics from the University of Chile and an M.Sc. in Human Geography from Utrecht University.
