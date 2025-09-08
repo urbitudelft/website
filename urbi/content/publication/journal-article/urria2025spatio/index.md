@@ -3,13 +3,17 @@ title: "The spatio-temporal evolution of social inequalities in cities: a multid
 authors:
 - ignacio-urria
 - Ana Petrović
-- Maarten van Ham
+- maarten-van-ham
 - David Manley
 author_notes:
 - "Corresponding author"
 date: "2025-10-01T00:00:00Z"
 doi: ""
 
+# Exclude this publication from the pages of the listed authors.
+exclude_authors:
+  - maarten-van-ham
+  
 # Schedule page publish date (NOT publication's date).
 publishDate: "2025-07-15T00:00:00Z"
 
