@@ -1,5 +1,5 @@
 ---
-title: "Geographies of socio-economic inequality. Oxford Open Economics"
+title: "Geographies of socio-economic inequality"
 authors:
 - maarten-van-ham
 - David Manley
