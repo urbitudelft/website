@@ -2,17 +2,18 @@
 title: "The spatio-temporal evolution of social inequalities in cities: a multidimensional, multiscalar and longitudinal approach for neighbourhood classification"
 authors:
 - ignacio-urria
-- Ana Petrović
+- ana-petrovic
 - maarten-van-ham
 - David Manley
 author_notes:
 - "Corresponding author"
 date: "2025-10-01T00:00:00Z"
-doi: ""
+doi: "https://doi.org/10.1016/j.cities.2025.106089"
 
 # Exclude this publication from the pages of the listed authors.
 exclude_authors:
   - maarten-van-ham
+  - ana-petrovic
   
 # Schedule page publish date (NOT publication's date).
 publishDate: "2025-07-15T00:00:00Z"
@@ -40,7 +41,7 @@ featured: true
 # - name: Custom Link
 #   url: http://example.org
 
-url_pdf: 'https://doi.org/10.1016/j.cities.2025.106089'
+url_pdf: 'https://www.sciencedirect.com/science/article/pii/S0264275125003890/pdfft?md5=2cc9aa87dd9b05362ce7be2a6ec216d9&pid=1-s2.0-S0264275125003890-main.pdf'
 url_code: 'https://data.4tu.nl/datasets/f0b25cba-abbb-42c6-823a-422aad8c0721'
 url_dataset: ''
 url_poster: ''
