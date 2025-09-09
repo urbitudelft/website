@@ -32,7 +32,8 @@ summary:
 
 tags:
 - Source Themes
-featured: false
+
+featured: true
 
 # Custom links (uncomment lines below)
 # links:

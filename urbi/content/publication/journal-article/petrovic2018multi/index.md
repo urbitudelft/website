@@ -4,8 +4,10 @@ authors:
 - ana-petrovic
 - maarten-van-ham
 - David Manley
+
 author_notes:
 - "Corresponding author"
+
 date: "2018-01-29T00:00:00Z"
 doi: "ttps://doi.org/10.1080/24694452.2017.1411245"
 
@@ -32,7 +34,8 @@ summary:
 
 tags:
 - Source Themes
-featured: false
+
+featured: true
 
 # Custom links (uncomment lines below)
 # links:

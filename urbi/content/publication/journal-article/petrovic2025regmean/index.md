@@ -1,13 +1,14 @@
 ---
-title: "The neighbourhood: Where Wilson, Schelling and Hägerstrand meet"
+title: "Regression Toward the Mean in Neighborhood Effects Research: A Geographic Perspective"
 authors:
+- Yinhua Tao
 - ana-petrovic
+- Mei-Po Kwan
 - maarten-van-ham
-- David Manley
 author_notes:
 - "Corresponding author"
-date: "2024-05-03T00:00:00Z"
-doi: "https://doi.org/10.4337/9781802203233.00020"
+date: "2025-06-03T00:00:00Z"
+doi: "https://doi.org/10.1080/24694452.2025.2504533"
 
 # Exclude this publication from the pages of the listed authors.
 exclude_authors:
@@ -22,7 +23,7 @@ publishDate: "2025-07-15T00:00:00Z"
 publication_types: ["article-journal"]
 
 # Publication name and optional abbreviated publication name.
-publication: "In Wolf, L.J., Heppenstall, A., Harris, R. (Eds.), *A Research Agenda for Spatial Analysis*, Edward Elgar Books"
+publication: "*Annals of the American Association of Geographers*, 115(7), 1596–1612"
 publication_short: ""
 
 abstract: 
@@ -39,7 +40,7 @@ featured: true
 # - name: Custom Link
 #   url: http://example.org
 
-url_pdf: 'https://www.elgaronline.com/downloadpdf/edcollchap-oa/book/9781802203233/book-part-9781802203233-20.pdf'
+url_pdf: 'https://www.tandfonline.com/doi/epdf/10.1080/24694452.2025.2504533?needAccess=true'
 url_code: ''
 url_dataset: ''
 url_poster: ''
