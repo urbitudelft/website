@@ -12,7 +12,42 @@
   
   const steps = document.querySelectorAll(".step");
   let scroller = null;
+  let mapColumn = null;
+let mapHomeMarker = null;
 
+function isVerticalScreen() {
+  return window.matchMedia("(max-width: 800px), (orientation: portrait)").matches;
+}
+
+function setupMobileMapMovement() {
+  mapColumn = document.getElementById("map-column");
+
+  if (!mapColumn || mapHomeMarker) return;
+
+  mapHomeMarker = document.createComment("original map-column position");
+  mapColumn.parentNode.insertBefore(mapHomeMarker, mapColumn);
+}
+
+function moveMapForStep(index) {
+  if (!mapColumn || !mapHomeMarker) return;
+
+  const activeStep = steps[index];
+  if (!activeStep) return;
+
+  if (isVerticalScreen()) {
+    activeStep.parentNode.insertBefore(mapColumn, activeStep);
+  } else {
+    mapHomeMarker.parentNode.insertBefore(mapColumn, mapHomeMarker.nextSibling);
+  }
+
+  if (map && typeof map.invalidateSize === "function") {
+    setTimeout(() => map.invalidateSize(), 150);
+  }
+
+  if (scroller && typeof scroller.resize === "function") {
+    setTimeout(() => scroller.resize(), 150);
+  }
+}
   if (typeof scrollama === "function") {
     scroller = scrollama();
   } else {
@@ -30,6 +65,8 @@
   }
 
   function initMap() {
+    setupMobileMapMovement();
+
     map = L.map("map", {
       zoomControl: false
     });
@@ -72,6 +109,13 @@
         });
 
         // Now set up scrollama
+        function getActiveStepIndex() {
+          const activeIndex = Array.from(steps).findIndex((step) =>
+            step.classList.contains("is-active")
+          );
+
+          return activeIndex >= 0 ? activeIndex : 0;
+        }
         initScroller();
       })
       .catch((err) => {
@@ -207,6 +251,7 @@
   }
 
     function setActiveStep(index) {
+    moveMapForStep(index);
     steps.forEach((step, i) => {
         if (i === index) step.classList.add("is-active");
         else step.classList.remove("is-active");
@@ -273,7 +318,13 @@
         setActiveStep(idx);
       });
 
-    window.addEventListener("resize", scroller.resize);
+    window.addEventListener("resize", function () {
+      moveMapForStep(getActiveStepIndex());
+
+      if (scroller && typeof scroller.resize === "function") {
+        scroller.resize();
+      }
+    });
     // Initialize with first step
     setActiveStep(0);
   }
