@@ -46,7 +46,7 @@ sections:
       slides:
       - title: Multiscale Urban Inequalities
         content: 'Explore how we study urban inequalities across multiple spatial scales.'
-        align: right
+        align: left
         background:
           image:
             filename: multiscale-bespoke-nbh.png
@@ -58,7 +58,7 @@ sections:
           icon: graduation-cap
           icon_pack: fas
           text: Explore our research
-          url: ../project/multiscale-bespoke-neighbourhoods/
+          url: ../project/multiscale-urban-inequalities/
     design:
       # Slide height is automatic unless you force a specific height (e.g. '400px')
       slide_height: ''
