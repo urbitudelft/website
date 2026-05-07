@@ -3,7 +3,7 @@ title: "Freedom from the Tyranny of Neighbourhood: Rethinking Socio-Spatial Cont
 authors:
 - ana-petrovic
 - maarten-van-ham
-- David Manley
+- david-manley
 author_notes:
 - "Corresponding author"
 date: "2019-08-28T00:00:00Z"

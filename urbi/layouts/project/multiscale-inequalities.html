@@ -1,0 +1,271 @@
+{{ define "main" }} 
+<h1 class="article-title text-center mb-4">{{ .Title }}</h1>
+
+{{ $hasScrolly := gt (len (where .Params.blocks "type" "scrolly")) 0 }}
+
+<!-- ===== FLEXIBLE BLOCK RENDERING ===== -->
+{{ range .Params.blocks }}
+  {{ $ctx := dict "block" . "page" $ }}
+
+  {{ if eq .type "text" }}
+    {{ partial "blocks/text.html" $ctx }}
+  {{ end }}
+
+  {{ if eq .type "scrolly" }}
+    {{ partial "blocks/scrolly.html" $ctx }}
+  {{ end }}
+
+  {{ if eq .type "image" }}
+    {{ partial "blocks/image.html" $ctx }}
+  {{ end }}
+
+  {{ if eq .type "amsterdam-map-selector" }}
+    {{ partial "blocks/amsterdam-map-selector.html" $ctx }}
+  {{ end }}
+  
+  {{ if eq .type "distance-profile" }}
+    {{ partial "blocks/distance-profile.html" $ctx }}
+  {{ end }}
+{{ end }}
+
+{{ if $hasScrolly }}
+  <!-- ========= PAGE STYLES (SCROLLY) ========= -->
+  <style>
+  html, body {
+    overflow-x: hidden;
+    font-family: system-ui, sans-serif;
+  }
+
+  .article-text-block {
+    background: transparent;
+    box-shadow: none;
+    border-radius: 0;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  @media (min-width: 1024px) {
+    .article-text-block {
+      max-width: 48rem;
+    }
+  }
+
+  .scrolly-heading {
+    max-width: 860px;
+    margin: 0 auto 1.5rem;
+    text-align: center;
+  }
+
+  .scrolly-heading h2 {
+    margin-bottom: 0.75rem;
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.1;
+    font-weight: 650;
+    color: #111827;
+  }
+
+  .scrolly-heading p {
+    margin: 0;
+    color: #4b5563;
+    font-size: 1.05rem;
+    line-height: 1.7;
+  }
+  /* === TEXT BLOCKS INSIDE SCROLLY (if you ever use them) === */
+  .text-block {
+    max-width: 960px;
+    margin: 0 auto 2.5rem auto;
+    padding: 0 1.25rem;
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .text-block p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #111827;
+    margin-bottom: 1.1rem;
+  }
+
+  .text-block h1,
+  .text-block h2,
+  .text-block h3 {
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+    color: #111827;
+  }
+
+  /* === SCROLLY LAYOUT (2 columns) === */
+  #scrolly-section {
+    position: relative;
+    padding: 4rem 2rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+
+  /* LEFT COLUMN: MAP */
+  #map-column {
+    position: relative;
+    flex: 0 0 40vw;
+  }
+
+  /* Map container base state */
+  #map-container {
+    position: relative;
+    width: 100%;
+    height: 70vh;
+    box-sizing: border-box;
+  }
+
+  /* Map fixed in viewport while inside scrolly */
+  #map-container.fixed {
+    position: fixed;
+    top: 6rem;           /* align under navbar */
+    left: 2rem;          /* horizontal placement */
+    width: 40vw;
+    height: 70vh;
+  }
+
+  /* Map pinned to bottom of scrolly section after last step */
+  #map-container.at-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 70vh;
+  }
+
+  /* Leaflet map */
+  #map {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* RIGHT COLUMN: STORY STEPS */
+  .story-container {
+    flex: 1 1 auto;
+    max-width: 720px;
+    padding: 0 1rem;
+  }
+
+  /* Make steps use the same typography as regular blog posts */
+  .step {
+    @apply prose prose-slate lg:prose-lg dark:prose-invert;
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(4px);
+    padding: 2rem 2.25rem;
+    margin-bottom: 3rem;
+    border-left: 4px solid transparent;
+    border-radius: 1rem;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+  }
+
+  .step h2 {
+    margin-top: 0;
+  }
+
+  .step.is-active {
+    border-left-color: #111827;
+  }
+
+  .stats-box {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: #f3f4f6;
+    border-radius: .75rem;
+  }
+
+  /* MOBILE: stack map and text */
+  @media (max-width: 800px) {
+    #scrolly-section {
+      flex-direction: column;
+      padding: 2rem 1rem;
+    }
+
+    #map-column {
+      flex: 0 0 auto;
+      width: 100%;
+    }
+
+    #map-container,
+    #map-container.fixed,
+    #map-container.at-bottom {
+      position: relative !important;
+      top: 0 !important;
+      left: 0 !important;
+      width: 100% !important;
+      height: 50vh !important;
+    }
+
+    .story-container {
+      max-width: 100%;
+      padding: 1.5rem 0.5rem;
+    }
+
+    .step {
+      min-height: auto;
+    }
+  }
+  </style>
+
+  <!-- ========= JAVASCRIPT ========= -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/@turf/turf@6.5.0/turf.min.js"></script>
+  <script src="https://unpkg.com/scrollama"></script>
+  <script src="/js/bespoke-areas.js"></script>
+
+  <script>
+  /**
+   * Sticky map behaviour:
+   * - Above scrolly: map is normal (relative)
+   * - While scrolly is active: map is fixed at top-left
+   * - After last step: map is pinned to the bottom of the scrolly section
+   */
+  const scrolly = document.getElementById("scrolly-section");
+  const mapBox = document.getElementById("map-container");
+
+  function updateFixed() {
+    if (!scrolly || !mapBox) return;
+
+    const navbarOffset = 96; // ~6rem
+    const mapHeight = mapBox.offsetHeight;
+
+    const scrollyTop = scrolly.offsetTop;
+    const scrollyBottom = scrollyTop + scrolly.offsetHeight;
+
+    const scrollY = window.scrollY || window.pageYOffset;
+    const viewportTop = scrollY + navbarOffset;
+
+    // CASE 1 — Above scrolly section: map in normal flow
+    if (viewportTop <= scrollyTop) {
+      mapBox.classList.remove("fixed", "at-bottom");
+      return;
+    }
+
+    // CASE 2 — After scrolly section: map pinned at bottom of scrolly
+    if (viewportTop >= scrollyBottom - mapHeight) {
+      mapBox.classList.remove("fixed");
+      mapBox.classList.add("at-bottom");
+      return;
+    }
+
+    // CASE 3 — Within scrolly: map fixed in viewport
+    mapBox.classList.add("fixed");
+    mapBox.classList.remove("at-bottom");
+
+    // FIX GRAY MAP (Leaflet must recalc size)
+    if (window.map && typeof map.invalidateSize === "function") {
+      setTimeout(() => map.invalidateSize(), 50);
+    }
+  }
+
+  window.addEventListener("scroll", updateFixed);
+  window.addEventListener("resize", updateFixed);
+  document.addEventListener("DOMContentLoaded", updateFixed);
+  </script>
+
+{{ end }}
+
+{{ end }}

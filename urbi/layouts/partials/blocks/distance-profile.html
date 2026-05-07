@@ -1,0 +1,504 @@
+{{- $block := .block -}}
+{{- $id := $block.id | default "distance-profile" -}}
+{{- $title := $block.title | default "How distance profiles are constructed" -}}
+{{- $description := $block.description | default "Move the slider to see how a bespoke neighbourhood grows around a central 100 × 100 m grid cell, and how its population composition forms a distance profile." -}}
+
+<section id="{{ $id }}" class="distance-profile-block">
+  <div class="distance-profile-inner">
+    
+    <div class="distance-profile-heading">
+      <h2>{{ $title }}</h2>
+      <p>{{ $description }} </p>
+    <div>
+
+    <div class="distance-profile-controls">
+      <label for="{{ $id }}-slider">
+        Scale:
+        <strong data-scale-label>100 m</strong>
+      </label>
+
+      <input
+        id="{{ $id }}-slider"
+        data-slider
+        type="range"
+        min="100"
+        max="10000"
+        step="100"
+        value="100"
+      >
+    </div>
+    
+    <div class="distance-profile-grid">
+      <div class="distance-profile-panel">
+        <h3>Bespoke neighbourhood</h3>
+
+        <svg class="distance-profile-svg" viewBox="0 0 520 520" aria-label="Bespoke neighbourhood">
+          <rect x="0" y="0" width="520" height="520" fill="rgba(250, 250, 250, 0.96)"></rect>
+          <circle class="distance-profile-buffer" data-buffer cx="260" cy="260" r="18"></circle>
+
+          <rect class="distance-profile-cell" x="248" y="248" width="24" height="24"></rect>
+
+          <line class="distance-profile-radius-line" data-radius-line x1="260" y1="260" x2="278" y2="242"></line>
+
+          <text class="distance-profile-radius-label" data-radius-label x="292" y="230">100 m</text>
+
+          <text class="distance-profile-map-value" data-map-value x="260" y="390" text-anchor="middle">
+            7% non-Western
+          </text>
+
+          <text class="distance-profile-cell-note" x="18" y="30">
+            Central cell: 100 × 100 m
+          </text>
+        </svg>
+      </div>
+
+      <div class="distance-profile-panel">
+        <h3>Distance profile</h3>
+
+        <svg class="distance-profile-svg" viewBox="0 0 460 420" aria-label="Distance profile chart">
+          <rect x="60" y="20" width="360" height="300" fill="#e9e9e9"></rect>
+
+          <g class="distance-profile-chart-grid">
+            <line x1="60" y1="320" x2="420" y2="320"></line>
+            <line x1="60" y1="260" x2="420" y2="260"></line>
+            <line x1="60" y1="200" x2="420" y2="200"></line>
+            <line x1="60" y1="140" x2="420" y2="140"></line>
+            <line x1="60" y1="80" x2="420" y2="80"></line>
+            <line x1="60" y1="20" x2="420" y2="20"></line>
+
+            <line x1="60" y1="20" x2="60" y2="320"></line>
+            <line x1="132" y1="20" x2="132" y2="320"></line>
+            <line x1="204" y1="20" x2="204" y2="320"></line>
+            <line x1="276" y1="20" x2="276" y2="320"></line>
+            <line x1="348" y1="20" x2="348" y2="320"></line>
+            <line x1="420" y1="20" x2="420" y2="320"></line>
+          </g>
+
+          <line class="distance-profile-axis" x1="60" y1="320" x2="420" y2="320"></line>
+          <line class="distance-profile-axis" x1="60" y1="20" x2="60" y2="320"></line>
+
+          <g class="distance-profile-axis-text">
+            <text x="42" y="324">0</text>
+            <text x="34" y="264">20</text>
+            <text x="34" y="204">40</text>
+            <text x="34" y="144">60</text>
+            <text x="34" y="84">80</text>
+            <text x="26" y="24">100</text>
+
+            <text x="56" y="345">0</text>
+            <text x="126" y="345">2000</text>
+            <text x="198" y="345">4000</text>
+            <text x="270" y="345">6000</text>
+            <text x="342" y="345">8000</text>
+            <text x="410" y="345">10000</text>
+          </g>
+
+          <text class="distance-profile-axis-title" x="240" y="385" text-anchor="middle">
+            Scale, radius in meters
+          </text>
+
+          <text class="distance-profile-axis-title" x="18" y="170" transform="rotate(-90 18 170)" text-anchor="middle">
+            Share of non-Western people
+          </text>
+
+          <polyline class="distance-profile-line-background" data-line-background points=""></polyline>
+          <polyline class="distance-profile-line-active" data-line-active points=""></polyline>
+
+          <circle class="distance-profile-point" data-point cx="63.6" cy="299" r="5"></circle>
+
+          <text class="distance-profile-chart-value" data-chart-value x="78" y="286">
+            7%
+          </text>
+        </svg>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+.distance-profile-block {
+  width: 100%;
+  max-width: none;
+  margin: 4rem auto;
+  padding: 0 clamp(1rem, 3vw, 3rem);
+}
+
+.distance-profile-inner {
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+.distance-profile-heading {
+  max-width: 860px;
+  margin: 0 auto 1.5rem;
+  text-align: center;
+}
+
+.distance-profile-heading h2 {
+  margin-bottom: 0.75rem;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.1;
+  font-weight: 650;
+  color: #111827;
+}
+
+.distance-profile-heading p {
+  margin: 0;
+  color: #4b5563;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.distance-profile-controls {
+  position: sticky;
+  top: 4.5rem;
+  z-index: 20;
+  max-width: 920px;
+  margin: 1.5rem auto 1.25rem;
+  padding: 0.85rem 1.1rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.85rem;
+  background: rgba(250, 250, 250, 0.96);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.distance-profile-controls label {
+  display: block;
+  margin-bottom: 0.55rem;
+  color: #111827;
+  font-size: 1rem;
+}
+
+.distance-profile-controls input[type="range"] {
+  width: 100%;
+}
+
+.distance-profile-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+  gap: clamp(1rem, 2vw, 2rem);
+  align-items: start;
+  background: none;
+}
+
+.distance-profile-panel {
+  min-width: 0;
+}
+
+.distance-profile-panel h3 {
+  margin: 0 0 0.75rem;
+  font-size: 1.05rem;
+  font-weight: 650;
+  text-align: center;
+  color: #111827;
+}
+
+.distance-profile-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: calc(100vh - 13rem);
+  background: rgba(250, 250, 250, 0.96);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  border-radius: 0.8rem;
+}
+
+.distance-profile-buffer {
+  fill: #f2aa84;
+  fill-opacity: 0.72;
+  stroke: #084f6a;
+  stroke-width: 2;
+}
+
+.distance-profile-cell {
+  fill: #c04f15;
+  stroke: #084f6a;
+  stroke-width: 2;
+}
+
+.distance-profile-radius-line {
+  stroke: #084f6a;
+  stroke-width: 3;
+}
+
+.distance-profile-radius-label,
+.distance-profile-map-value,
+.distance-profile-chart-value {
+  fill: #084f6a;
+  font-weight: 600;
+}
+
+.distance-profile-radius-label {
+  font-size: 23px;
+}
+
+.distance-profile-map-value {
+  font-size: 34px;
+}
+
+.distance-profile-cell-note {
+  fill: #4b5563;
+  font-size: 15px;
+}
+
+.distance-profile-chart-grid line {
+  stroke: #ffffff;
+  stroke-width: 1.2;
+}
+
+.distance-profile-axis {
+  stroke: #333333;
+  stroke-width: 1.4;
+}
+
+.distance-profile-axis-text text {
+  fill: #444444;
+  font-size: 14px;
+}
+
+.distance-profile-axis-title {
+  fill: #222222;
+  font-size: 14px;
+  font-weight: 650;
+}
+
+.distance-profile-line-background {
+  fill: none;
+  stroke: #c7c7c7;
+  stroke-width: 2.5;
+}
+
+.distance-profile-line-active {
+  fill: none;
+  stroke: #4b5563;
+  stroke-width: 3;
+}
+
+.distance-profile-point {
+  fill: #c04f15;
+  stroke: #ffffff;
+  stroke-width: 2;
+}
+
+.distance-profile-chart-value {
+  font-size: 26px;
+}
+
+@media (max-width: 900px) {
+  .distance-profile-block {
+    margin: 2.5rem auto;
+    padding: 0 0.85rem;
+  }
+
+  .distance-profile-heading {
+    margin-bottom: 1rem;
+  }
+
+  .distance-profile-heading h2 {
+    font-size: 1.8rem;
+  }
+
+  .distance-profile-heading p {
+    font-size: 0.98rem;
+    line-height: 1.55;
+  }
+
+  .distance-profile-controls {
+    top: 0.5rem;
+    margin-bottom: 1rem;
+    padding: 0.8rem;
+  }
+
+  .distance-profile-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .distance-profile-panel h3 {
+    font-size: 1rem;
+  }
+
+  .distance-profile-svg {
+    max-height: none;
+  }
+}
+
+@media (max-width: 520px) {
+  .distance-profile-heading h2 {
+    font-size: 1.55rem;
+  }
+
+  .distance-profile-map-value {
+    font-size: 28px;
+  }
+
+  .distance-profile-radius-label {
+    font-size: 20px;
+  }
+
+  .distance-profile-chart-value {
+    font-size: 22px;
+  }
+}
+</style>
+
+<script>
+(function () {
+  const widget = document.getElementById("{{ $id }}");
+  if (!widget || widget.dataset.initialized === "true") return;
+  widget.dataset.initialized = "true";
+
+  const slider = widget.querySelector("[data-slider]");
+  const scaleLabel = widget.querySelector("[data-scale-label]");
+
+  const buffer = widget.querySelector("[data-buffer]");
+  const radiusLine = widget.querySelector("[data-radius-line]");
+  const radiusLabel = widget.querySelector("[data-radius-label]");
+  const mapValue = widget.querySelector("[data-map-value]");
+
+  const lineBackground = widget.querySelector("[data-line-background]");
+  const lineActive = widget.querySelector("[data-line-active]");
+  const point = widget.querySelector("[data-point]");
+  const chartValue = widget.querySelector("[data-chart-value]");
+
+  const anchors = [
+    { m: 100,   v: 7  },
+    { m: 200,   v: 35 },
+    { m: 300,   v: 74 },
+    { m: 400,   v: 80 },
+    { m: 600,   v: 76 },
+    { m: 800,   v: 70 },
+    { m: 1000,  v: 69 },
+    { m: 1500,  v: 69 },
+    { m: 2000,  v: 68 },
+    { m: 2500,  v: 66 },
+    { m: 3000,  v: 62 },
+    { m: 4000,  v: 52 },
+    { m: 5000,  v: 45 },
+    { m: 6000,  v: 38 },
+    { m: 7000,  v: 36 },
+    { m: 8000,  v: 31 },
+    { m: 9000,  v: 28 },
+    { m: 10000, v: 28 }
+  ];
+
+  function interpolate(m) {
+    for (let i = 0; i < anchors.length - 1; i++) {
+      const a = anchors[i];
+      const b = anchors[i + 1];
+
+      if (m >= a.m && m <= b.m) {
+        const t = (m - a.m) / (b.m - a.m);
+        return a.v + t * (b.v - a.v);
+      }
+    }
+
+    return anchors[anchors.length - 1].v;
+  }
+
+  const data = [];
+  for (let m = 100; m <= 10000; m += 100) {
+    data.push({ m: m, v: interpolate(m) });
+  }
+
+  const chart = {
+    x0: 60,
+    y0: 20,
+    w: 360,
+    h: 300
+  };
+
+  function xPos(m) {
+    return chart.x0 + (m / 10000) * chart.w;
+  }
+
+  function yPos(v) {
+    return chart.y0 + chart.h - (v / 100) * chart.h;
+  }
+
+  function pointsUntil(maxM) {
+    return data
+      .filter(d => d.m <= maxM)
+      .map(d => `${xPos(d.m).toFixed(1)},${yPos(d.v).toFixed(1)}`)
+      .join(" ");
+  }
+
+  function allPoints() {
+    return data
+      .map(d => `${xPos(d.m).toFixed(1)},${yPos(d.v).toFixed(1)}`)
+      .join(" ");
+  }
+
+  function formatScale(m) {
+    if (m < 1000) return `${m} m`;
+    if (m % 1000 === 0) return `${m / 1000} km`;
+    return `${(m / 1000).toFixed(1)} km`;
+  }
+
+  function visualRadius(m) {
+    const minR = 18;
+    const maxR = 225;
+
+    const scaled =
+      (Math.sqrt(m) - Math.sqrt(100)) /
+      (Math.sqrt(10000) - Math.sqrt(100));
+
+    return minR + scaled * (maxR - minR);
+  }
+
+  function update(m) {
+    const value = interpolate(m);
+    const rounded = Math.round(value);
+    const r = visualRadius(m);
+
+    scaleLabel.textContent = formatScale(m);
+
+    const cx = 260;
+    const cy = 260;
+    const angle = -Math.PI / 4;
+
+    const x2 = cx + Math.cos(angle) * r;
+    const y2 = cy + Math.sin(angle) * r;
+
+    buffer.setAttribute("r", r.toFixed(1));
+    radiusLine.setAttribute("x2", x2.toFixed(1));
+    radiusLine.setAttribute("y2", y2.toFixed(1));
+
+    radiusLabel.setAttribute("x", (cx + Math.cos(angle) * r * 0.62 + 18).toFixed(1));
+    radiusLabel.setAttribute("y", (cy + Math.sin(angle) * r * 0.62 - 6).toFixed(1));
+    radiusLabel.textContent = formatScale(m);
+
+    mapValue.textContent = `${rounded}% non-Western`;
+
+    lineActive.setAttribute("points", pointsUntil(m));
+
+    const px = xPos(m);
+    const py = yPos(value);
+
+    point.setAttribute("cx", px.toFixed(1));
+    point.setAttribute("cy", py.toFixed(1));
+
+    if (m >= 8500) {
+      chartValue.setAttribute("text-anchor", "end");
+      chartValue.setAttribute("x", (px - 10).toFixed(1));
+    } else {
+      chartValue.setAttribute("text-anchor", "start");
+      chartValue.setAttribute("x", (px + 10).toFixed(1));
+    }
+
+    chartValue.setAttribute("y", Math.max(py - 10, 28).toFixed(1));
+    chartValue.textContent = `${rounded}%`;
+  }
+
+  lineBackground.setAttribute("points", allPoints());
+  update(Number(slider.value));
+
+  slider.addEventListener("input", function () {
+    update(Number(this.value));
+  });
+})();
+</script>

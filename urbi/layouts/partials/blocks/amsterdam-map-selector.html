@@ -1,0 +1,410 @@
+{{- $block := .block -}}
+{{- $page := .page -}}
+
+{{- $years  := $block.years -}}
+{{- $scales := $block.scales -}}
+
+<section id="amsterdam-map-block" class="my-12">
+
+  <style>
+    /* --------------------------- */
+    /* FULL-WIDTH SECTION          */
+    /* --------------------------- */
+    #amsterdam-map-block {
+      width: 100%;
+      max-width: none;
+      margin: 4rem auto;
+      padding: 0 clamp(1rem, 2.5vw, 3rem);
+    }
+
+    /* --------------------------- */
+    /* MAIN CONTAINER              */
+    /* --------------------------- */
+    #amsterdam-map-block .urbi-container {
+      width: 100%;
+      max-width: 1600px;
+      margin: 0 auto;
+    }
+
+    /* --------------------------- */
+    /* HEADING                     */
+    /* --------------------------- */
+    #amsterdam-map-block .urbi-heading {
+      max-width: 900px;
+      margin: 0 auto 2rem;
+      text-align: center;
+    }
+
+    #amsterdam-map-block .urbi-heading h2 {
+      margin-bottom: 0.75rem;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.1;
+      font-weight: 650;
+      color: #111827;
+    }
+
+    #amsterdam-map-block .urbi-heading p {
+      margin: 0;
+      color: #4b5563;
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    /* --------------------------- */
+    /* TWO-COLUMN LAYOUT           */
+    /* --------------------------- */
+    #amsterdam-map-block .urbi-two-col {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      align-items: stretch;
+    }
+
+    @media (min-width: 1000px) {
+      #amsterdam-map-block .urbi-two-col {
+        grid-template-columns: minmax(260px, 0.58fr) minmax(560px, 1.42fr);
+      }
+    }
+
+    /* --------------------------- */
+    /* CARD BOXES                  */
+    /* --------------------------- */
+    #amsterdam-map-block .urbi-card {
+      background: white;
+      border: 1px solid #e5e7eb;
+      padding: 0.9rem;
+      border-radius: 1rem;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* --------------------------- */
+    /* HEATMAP PANEL               */
+    /* --------------------------- */
+    #amsterdam-map-block .urbi-two-col > :first-child .urbi-card {
+      justify-content: flex-start;
+    }
+
+    #amsterdam-map-block #coefmap-img {
+      width: 100%;
+      max-width: 430px;
+      height: auto;
+      margin: 0 auto;
+      display: block;
+    }
+
+    /* Caption below heatmap */
+    #amsterdam-map-block .coef-caption {
+      max-width: 430px;
+      margin: 1rem auto 0;
+      color: #4b5563;
+      font-size: 0.9rem;
+      line-height: 1.55;
+      text-align: center;
+    }
+
+    /* --------------------------- */
+    /* IMAGE STYLING               */
+    /* --------------------------- */
+    #amsterdam-map-block .urbi-image {
+      width: 100%;
+      height: auto;
+      border-radius: 0.75rem;
+    }
+
+    #amsterdam-map-block #coefmap-img.urbi-image {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.13);
+    }
+
+    #amsterdam-map-block #ams-map-img.urbi-image {
+      box-shadow: none;
+    }
+
+    /* --------------------------- */
+    /* MAP PANEL                   */
+    /* --------------------------- */
+    #amsterdam-map-block #urbi-map-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      min-height: 0;
+    }
+
+    #amsterdam-map-block .urbi-map-wrapper {
+      flex: 1 1 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      min-height: 0;
+    }
+
+    #amsterdam-map-block .contain-img {
+      width: 100%;
+      height: auto;
+      max-height: min(90vh, 900px);
+      object-fit: contain;
+      border-radius: 0.75rem;
+    }
+
+    /* --------------------------- */
+    /* SLIDER CARD                 */
+    /* --------------------------- */
+    #amsterdam-map-block .urbi-slider-card {
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      padding: 0.85rem 1rem;
+      border-radius: 0.75rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    }
+
+    /* --------------------------- */
+    /* SLIDER GROUPS               */
+    /* --------------------------- */
+    #amsterdam-map-block .slider-group {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 0.8rem;
+    }
+
+    #amsterdam-map-block .slider-group:last-child {
+      margin-bottom: 0;
+    }
+
+    @media (min-width: 700px) {
+      #amsterdam-map-block .urbi-slider-card {
+        display: flex;
+        gap: 1.5rem;
+      }
+
+      #amsterdam-map-block .slider-group {
+        flex: 1;
+        margin-bottom: 0;
+      }
+    }
+
+    /* --------------------------- */
+    /* SLIDER LABELS + VALUES      */
+    /* --------------------------- */
+    #amsterdam-map-block .slider-label {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+      color: #111827;
+    }
+
+    #amsterdam-map-block .slider-value {
+      color: #2563eb;
+      margin-left: 0.3rem;
+      font-weight: 600;
+    }
+
+    /* --------------------------- */
+    /* SLIDER APPEARANCE           */
+    /* --------------------------- */
+    #amsterdam-map-block .slider-input {
+      width: 100%;
+      -webkit-appearance: none;
+      height: 6px;
+      border-radius: 4px;
+      background: #d1d5db;
+      cursor: pointer;
+    }
+
+    #amsterdam-map-block .slider-input::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      height: 16px;
+      width: 16px;
+      border-radius: 50%;
+      background: #2563eb;
+      cursor: pointer;
+    }
+
+    #amsterdam-map-block .slider-input::-moz-range-thumb {
+      height: 16px;
+      width: 16px;
+      border: none;
+      border-radius: 50%;
+      background: #2563eb;
+      cursor: pointer;
+    }
+
+    /* --------------------------- */
+    /* SMALL SCREENS               */
+    /* --------------------------- */
+    @media (max-width: 999px) {
+      #amsterdam-map-block {
+        margin: 3rem auto;
+        padding: 0 1rem;
+      }
+
+      #amsterdam-map-block .urbi-heading {
+        margin-bottom: 1.25rem;
+      }
+
+      #amsterdam-map-block .urbi-heading h2 {
+        font-size: 1.8rem;
+      }
+
+      #amsterdam-map-block .urbi-heading p {
+        font-size: 0.98rem;
+        line-height: 1.55;
+      }
+
+      #amsterdam-map-block .urbi-card {
+        padding: 1rem;
+      }
+
+      #amsterdam-map-block #coefmap-img {
+        max-width: 360px;
+      }
+
+      #amsterdam-map-block .contain-img {
+        max-height: none;
+      }
+    }
+  </style>
+
+  <!-- ====================== -->
+  <!-- WRAPPER                -->
+  <!-- ====================== -->
+  <div class="urbi-container">
+
+    <!-- ====================== -->
+    <!-- TOP BOX                -->
+    <!-- ====================== -->
+    <div class="urbi-heading">
+      <h2>
+        {{ with $block.title }}{{ . }}{{ else }}Amsterdam’s social urban structure over time and scales{{ end }}
+      </h2>
+
+      {{ with $block.description }}
+        <p>{{ . }}</p>
+      {{ end }}
+    </div>
+
+    <!-- ====================== -->
+    <!-- TWO COLUMNS            -->
+    <!-- ====================== -->
+    <div class="urbi-two-col">
+
+      <!-- LEFT COLUMN = COEFMAP -->
+      <div class="urbi-col">
+        <div class="urbi-card">
+
+          <div class="flex justify-center">
+            {{- $coef := $page.Resources.GetMatch $block.coef_image -}}
+            {{ if $coef }}
+              <img id="coefmap-img"
+                   src="{{ $coef.RelPermalink }}"
+                   alt="Coefficient heatmap"
+                   class="urbi-image">
+            {{ else }}
+              <img id="coefmap-img"
+                   src="{{ $block.coef_image }}"
+                   alt="Coefficient heatmap"
+                   class="urbi-image">
+            {{ end }}
+          </div>
+
+          {{ with $block.coef_caption }}
+            <p class="coef-caption">{{ . }}</p>
+          {{ end }}
+
+        </div>
+      </div>
+
+      <!-- RIGHT COLUMN = SLIDERS + MAP -->
+      <div class="urbi-col">
+        <div class="urbi-card" id="urbi-map-panel">
+
+          <!-- SLIDER BOX -->
+          <div class="urbi-slider-card">
+
+            <div class="slider-group">
+              <label class="slider-label">
+                Select year:
+                <span id="ams-year-label" class="slider-value">{{ index $years 0 }}</span>
+              </label>
+              <input id="ams-year-slider"
+                     type="range"
+                     min="0"
+                     max="{{ sub (len $years) 1 }}"
+                     value="0"
+                     step="1"
+                     class="slider-input">
+            </div>
+
+            <div class="slider-group">
+              <label class="slider-label">
+                Select scale:
+                <span id="ams-scale-label" class="slider-value">{{ index $scales 0 }}</span>
+              </label>
+              <input id="ams-scale-slider"
+                     type="range"
+                     min="0"
+                     max="{{ sub (len $scales) 1 }}"
+                     value="0"
+                     step="1"
+                     class="slider-input">
+            </div>
+
+          </div>
+
+          <!-- MAP -->
+          <div class="urbi-map-wrapper">
+            <img id="ams-map-img"
+                 alt="Amsterdam multiscale map"
+                 class="urbi-image contain-img">
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+<!-- ====================== -->
+<!-- JAVASCRIPT             -->
+<!-- ====================== -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const years  = {{ $years  | jsonify | safeJS }};
+  const scales = {{ $scales | jsonify | safeJS }};
+
+  const yearSlider  = document.getElementById("ams-year-slider");
+  const scaleSlider = document.getElementById("ams-scale-slider");
+
+  const yearLabel   = document.getElementById("ams-year-label");
+  const scaleLabel  = document.getElementById("ams-scale-label");
+
+  const mapImg      = document.getElementById("ams-map-img");
+
+  const resourceBase = "{{ $page.RelPermalink }}images/";
+
+  function filename(scale, year) {
+    return `clusters_NMF_k4_scale${scale}_${year}_metaggl_10.{{ $block.ext }}`;
+  }
+
+  function updateMap() {
+    const year  = years[parseInt(yearSlider.value)];
+    const scale = scales[parseInt(scaleSlider.value)];
+
+    yearLabel.textContent  = year;
+    scaleLabel.textContent = scale;
+
+    mapImg.src = resourceBase + filename(scale, year);
+  }
+
+  yearSlider.addEventListener("input", updateMap);
+  scaleSlider.addEventListener("input", updateMap);
+
+  updateMap();
+});
+</script>

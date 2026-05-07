@@ -1,0 +1,44 @@
+[
+  {
+    "radius_m": 0,
+    "cells_included": 1,
+    "total_pop": 135,
+    "nonnative_count": 54,
+    "nonnative_share": 0.4
+  },
+  {
+    "radius_m": 100,
+    "cells_included": 5,
+    "total_pop": 440,
+    "nonnative_count": 235,
+    "nonnative_share": 0.5341
+  },
+  {
+    "radius_m": 200,
+    "cells_included": 13,
+    "total_pop": 1065,
+    "nonnative_count": 594,
+    "nonnative_share": 0.5577
+  },
+  {
+    "radius_m": 300,
+    "cells_included": 28,
+    "total_pop": 2470,
+    "nonnative_count": 1392,
+    "nonnative_share": 0.5636
+  },
+  {
+    "radius_m": 5000,
+    "cells_included": 4388,
+    "total_pop": 634380,
+    "nonnative_count": 349823,
+    "nonnative_share": 0.5514
+  },
+  {
+    "radius_m": 10000,
+    "cells_included": 9828,
+    "total_pop": 1096905,
+    "nonnative_count": 619605,
+    "nonnative_share": 0.5649
+  }
+]

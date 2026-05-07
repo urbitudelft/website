@@ -3,7 +3,7 @@ title: "Where Do Neighborhood Effects End? Moving to Multiscale Spatial Contextu
 authors:
 - ana-petrovic
 - maarten-van-ham
-- David Manley
+- david-manley
 author_notes:
 - "Corresponding author"
 date: "2021-06-22T00:00:00Z"

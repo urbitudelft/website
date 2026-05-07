@@ -7,7 +7,7 @@ first_name: Maarten
 last_name: van Ham
 
 # Is this the primary user of the site?
-superuser: true
+superuser: false
 
 # Role/position
 role: Full Professor

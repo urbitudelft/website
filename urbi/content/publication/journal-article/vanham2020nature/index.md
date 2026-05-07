@@ -4,7 +4,7 @@ authors:
 - maarten-van-ham
 - Masaya Uesugi
 - Tilt Tammaru
-- David Manley
+- david-manley
 - Heleen Janssen
 
 author_notes:

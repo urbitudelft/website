@@ -1,0 +1,32 @@
+{{- $block := .block -}}
+{{- $page := .page -}}
+
+<figure class="my-4 text-center">
+  {{- with $block.image }}
+    {{- $res := $page.Resources.GetMatch . -}}
+    {{- if $res }}
+      <img
+        src="{{ $res.RelPermalink }}"
+        alt="{{ $block.alt | default $block.caption }}"
+        class="d-block mx-auto rounded"
+        style="max-width:50%; height:auto;"
+        loading="lazy"
+      >
+    {{- else }}
+      <!-- Fallback to static path if not a Page Resource -->
+      <img
+        src="{{ . }}"
+        alt="{{ $block.alt | default $block.caption }}"
+        class="d-block mx-auto rounded"
+        style="max-width:50%; height:auto;"
+        loading="lazy"
+      >
+    {{- end }}
+  {{- end }}
+
+  {{- with $block.caption }}
+    <figcaption class="rounded text-center text-sm text-gray-600" style="max-width:50%; margin:0 auto;">
+      {{ . | markdownify }}
+    </figcaption>
+  {{- end }}
+</figure>

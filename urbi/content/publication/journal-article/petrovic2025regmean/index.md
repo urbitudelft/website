@@ -26,7 +26,7 @@ publication_types: ["article-journal"]
 publication: "*Annals of the American Association of Geographers*, 115(7), 1596–1612"
 publication_short: ""
 
-abstract: 
+abstract: Neighborhood effects research focuses on the residential neighborhood, assuming it as the main spatial context relevant to individual outcomes. Individuals, however, are mobile and visit various spatial contexts other than the residential neighborhoods. This article conceptualizes contextual exposures to socioenvironmental factors in daily activity spaces and their relationship with residential exposures. By introducing regression toward the mean, we argue that mobility-based contextual exposures are, on average, less extreme than residential exposures. Previous neighborhood effects studies therefore tend to underestimate actual spatial contextual effects when they misrepresent residential neighborhood effects as the total contextual effects. Despite improved measurement accuracy with the transition from residence- to mobility-based exposures, we suggest the complexities remaining in the estimation of spatial contextual effects from a geographic perspective. These complexities include a possibly limited extent of neighborhood effects regression across neighborhoods and asymmetrical dispersion of between-individual contextual exposures within each neighborhood.
 
 # Summary. An optional shortened abstract.
 summary: 

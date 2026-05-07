@@ -2,13 +2,17 @@
 title: "Geographies of socio-economic inequality"
 authors:
 - maarten-van-ham
-- David Manley
+- david-manley
 - Tilt Tammaru
 
 author_notes:
 - "Corresponding author"
 date: "2024-07-17"
 doi: "https://doi.org/10.1093/ooec/odad045"
+
+# Exclude this publication from the pages of the listed authors.
+exclude_authors:
+  - david-manley
 
 # Schedule page publish date (NOT publication's date).
 publishDate: "2025-07-15T00:00:00Z"

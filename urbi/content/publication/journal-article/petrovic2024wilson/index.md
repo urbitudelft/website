@@ -3,7 +3,7 @@ title: "The neighbourhood: Where Wilson, Schelling and Hägerstrand meet"
 authors:
 - ana-petrovic
 - maarten-van-ham
-- David Manley
+- david-manley
 author_notes:
 - "Corresponding author"
 date: "2024-05-03T00:00:00Z"
@@ -25,7 +25,7 @@ publication_types: ["article-journal"]
 publication: "In Wolf, L.J., Heppenstall, A., Harris, R. (Eds.), *A Research Agenda for Spatial Analysis*, Edward Elgar Books"
 publication_short: ""
 
-abstract: 
+abstract: There is a longstanding interest in the causes and consequences of socio-spatial inequalities in cities. A large literature has emerged on so-called neighbourhood effects, which seeks to understand how living in neighbourhoods of concentrated poverty affects a range of individual outcomes, such as health, income, education and general wellbeing (Galster, 2012). For both theoretical and empirical reasons, the term ‘neighbourhood effects’ should be replaced by the more encompassing term ‘spatial context effects’, as many of the assumed spatial effects are not confined to residential neighbourhoods and the contestable meaning of neighbourhood distracts (Petrović, Manley & Van Ham, 2019). Despite the substantial advances that have been made in defining and measuring the spatial context of individuals, we argue that to further our understanding of spatial context effects it is necessary to go much further. In this chapter, we outline how weaving together different contemporary strands of thinking about socio-spatial inequalities can help us develop an approach to better understand spatial context effects.
 
 # Summary. An optional shortened abstract.
 summary: 

@@ -39,9 +39,6 @@ education:
     - course: MSc in Applied Economics
       institution: Faculty of Economics and Business, Universidad de Chile
       year: 2019
-    - course: BSc in Economics
-      institution: Faculty of Economics and Business, Universidad de Chile
-      year: 2017
 
 work:
   jobs:

@@ -1,0 +1,42 @@
+{{- $block := .block -}}
+{{- $title := $block.title | default "How bespoke neighbourhoods are constructed" -}}
+{{- $description := $block.description | default "Scroll down to see how a bespoke neighbourhood grows around a central 100 × 100 m grid cell. You can select a specific grid cell to see its composition." -}}
+
+
+<section id="scrolly-title">
+  <div class="scrolly-heading">
+    <h2>{{ $title }}</h2>
+    <p>{{ $description }} </p>
+  <div>
+
+</section>
+
+<section id="scrolly-section">
+
+  <!-- LEFT: MAP COLUMN -->
+  <div id="map-column">
+    <div id="map-container">
+      <div id="map"></div>
+    </div>
+  </div>
+
+  <!-- RIGHT: STORY STEPS -->
+  <div class="story-container">
+    {{ range $i, $step := $block.steps }}
+      <section class="step" data-step="{{ add $i 1 }}">
+        {{ with $step.title }}
+          <h2>{{ . }}</h2>
+        {{ end }}
+
+        {{ with $step.body }}
+          {{ . | markdownify }}
+        {{ end }}
+
+        <div class="stats-box">
+          <div id="stats-step-{{ add $i 1 }}"></div>
+        </div>
+      </section>
+    {{ end }}
+  </div>
+
+</section>

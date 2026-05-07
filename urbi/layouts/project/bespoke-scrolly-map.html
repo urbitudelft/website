@@ -1,0 +1,261 @@
+{{ define "main" }}
+<h1 class="article-title text-center mb-4">{{ .Title }}</h1>
+
+<!-- ===== FLEXIBLE BLOCK RENDERING ===== -->
+{{ range .Params.blocks }}
+  {{ if eq .type "text" }}
+    <div class="article-text-block prose prose-slate lg:prose-xl dark:prose-invert mx-auto py-6 px-4 max-w-3xl">
+      {{ .content | markdownify }}
+    </div>
+  {{ end }}
+
+  {{ if eq .type "scrolly" }}
+  <!-- === SCROLLYTELLING MODULE === -->
+  <section id="scrolly-section">
+
+    <!-- LEFT: MAP COLUMN -->
+    <div id="map-column">
+      <div id="map-container">
+        <div id="map"></div>
+      </div>
+    </div>
+
+    <!-- RIGHT: STORY STEPS -->
+    <div class="story-container">
+      {{ $.Content }}
+    </div>
+
+  </section>
+  {{ end }}
+{{ end }}
+
+<!-- ========= PAGE STYLES ========= -->
+<style>
+html, body {
+  overflow-x: hidden;
+  font-family: system-ui, sans-serif;
+}
+
+.article-text-block {
+  background: transparent;
+  box-shadow: none;
+  border-radius: 0;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+}
+
+/* Optional: increase text column width slightly */
+@media (min-width: 1024px) {
+  .article-text-block {
+    max-width: 48rem; /* same ballpark as blog posts */
+  }
+}
+
+/* === TEXT BLOCKS INSIDE SCROLLY === */
+.text-block {
+  max-width: 960px;              /* wider, like a normal article */
+  margin: 0 auto 2.5rem auto;    /* center, with bottom spacing */
+  padding: 0 1.25rem;            /* light side padding for readability */
+  background: transparent;       /* no box background */
+  border-radius: 0;              /* no rounded card look */
+  box-shadow: none;              /* remove card shadow */
+}
+
+/* Optional: slightly nicer body text */
+.text-block p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #111827;
+  margin-bottom: 1.1rem;
+}
+
+.text-block h1,
+.text-block h2,
+.text-block h3 {
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+
+/* === SCROLLY LAYOUT (2 columns) === */
+#scrolly-section {
+  position: relative;
+  padding: 4rem 2rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+/* LEFT COLUMN: MAP */
+#map-column {
+  position: relative;
+  flex: 0 0 40vw;
+}
+
+/* Map container base state */
+#map-container {
+  position: relative;
+  width: 100%;
+  height: 70vh;
+  box-sizing: border-box;
+}
+
+/* Map fixed in viewport while inside scrolly */
+#map-container.fixed {
+  position: fixed;
+  top: 6rem;           /* align under navbar */
+  left: 2rem;          /* horizontal placement */
+  width: 40vw;
+  height: 70vh;
+}
+
+/* Map pinned to bottom of scrolly section after last step */
+#map-container.at-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 70vh;
+}
+
+/* Leaflet map */
+#map {
+  width: 100%;
+  height: 100%;
+}
+
+/* RIGHT COLUMN: STORY STEPS */
+.story-container {
+  flex: 1 1 auto;
+  max-width: 720px;
+  padding: 0 1rem;
+}
+
+/* Make steps use the same typography as regular blog posts */
+.step {
+  @apply prose prose-slate lg:prose-lg dark:prose-invert;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(4px);
+  padding: 2rem 2.25rem;
+  margin-bottom: 3rem;
+  border-left: 4px solid transparent;
+  border-radius: 1rem;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+}
+
+.step h2 {
+  margin-top: 0;
+}
+
+.step.is-active {
+  border-left-color: #111827;
+}
+
+
+.step.is-active {
+  border-left-color: #111827;
+}
+
+.stats-box {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: #f3f4f6;
+  border-radius: .75rem;
+}
+
+/* MOBILE: stack map and text */
+@media (max-width: 800px) {
+  #scrolly-section {
+    flex-direction: column;
+    padding: 2rem 1rem;
+  }
+
+  #map-column {
+    flex: 0 0 auto;
+    width: 100%;
+  }
+
+  #map-container,
+  #map-container.fixed,
+  #map-container.at-bottom {
+    position: relative !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 50vh !important;
+  }
+
+  .story-container {
+    max-width: 100%;
+    padding: 1.5rem 0.5rem;
+  }
+
+  .step {
+    min-height: auto;
+  }
+}
+</style>
+
+<!-- ========= JAVASCRIPT ========= -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/@turf/turf@6.5.0/turf.min.js"></script>
+<script src="https://unpkg.com/scrollama"></script>
+<script src="/js/bespoke-areas.js"></script>
+
+<script>
+/**
+ * Sticky map behaviour:
+ * - Above scrolly: map is normal (relative)
+ * - While scrolly is active: map is fixed at top-left
+ * - After last step: map is pinned to the bottom of the scrolly section
+ *
+ * No fade, no horizontal jumping.
+ */
+const scrolly = document.getElementById("scrolly-section");
+const mapBox = document.getElementById("map-container");
+
+function updateFixed() {
+  if (!scrolly || !mapBox) return;
+
+  const navbarOffset = 96; // ~6rem, adjust if navbar height differs
+  const mapHeight = mapBox.offsetHeight;
+
+  const scrollyTop = scrolly.offsetTop;
+  const scrollyBottom = scrollyTop + scrolly.offsetHeight;
+
+  const scrollY = window.scrollY || window.pageYOffset;
+  const viewportTop = scrollY + navbarOffset;
+
+  // CASE 1 — Above scrolly section: map in normal flow
+  if (viewportTop <= scrollyTop) {
+    mapBox.classList.remove("fixed", "at-bottom");
+    return;
+  }
+
+  // CASE 2 — After scrolly section: map pinned at bottom of scrolly
+  if (viewportTop >= scrollyBottom - mapHeight) {
+    mapBox.classList.remove("fixed");
+    mapBox.classList.add("at-bottom");
+    return;
+  }
+
+  // CASE 3 — Within scrolly: map fixed in viewport
+  mapBox.classList.add("fixed");
+  mapBox.classList.remove("at-bottom");
+
+  // FIX GRAY MAP (Leaflet must recalc size)
+  if (window.map && typeof map.invalidateSize === "function") {
+    setTimeout(() => map.invalidateSize(), 50);
+  }
+
+}
+
+window.addEventListener("scroll", updateFixed);
+window.addEventListener("resize", updateFixed);
+document.addEventListener("DOMContentLoaded", updateFixed);
+
+</script>
+
+{{ end }}

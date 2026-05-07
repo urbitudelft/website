@@ -4,7 +4,7 @@ authors:
 - ana-petrovic
 - maarten-van-ham
 - Heleen Janssen
-- David Manley
+- david-manley
 - Tiit Tammaru
 author_notes:
 - "Corresponding author"
@@ -14,6 +14,7 @@ doi: "https://doi.org/10.2760/823648"
 # Exclude this publication from the pages of the listed authors.
 exclude_authors:
   - maarten-van-ham
+  - david-manley
   
 # Schedule page publish date (NOT publication's date).
 publishDate: "2025-07-15T00:00:00Z"
