@@ -44,14 +44,14 @@ sections:
   - block: slider
     content:
       slides:
-      - title: Multiscale Urban Inequalities
-        content: 'Explore how we study urban inequalities across multiple spatial scales.'
-        align: left
+      - title: Multiscale<br>Urban<br>Inequalities
+        content: 'Our research on urban inequalities across spatial scales.'
+        align: center
         background:
           image:
             filename: multiscale-bespoke-nbh.png
             filters:
-              brightness: 0.5
+              brightness: 0.3
           position: center
           color: '#333'
         link:
