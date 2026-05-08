@@ -7,17 +7,15 @@ type: landing
 sections:
   - block: contact
     content:
-      title: Where to find us
+      title: How to reach us
       text: |-
-        
-        You can find more information on how to contact us [here](https://www.tudelft.nl/bk/over-faculteit/afdelingen/urbanism/organisatie/secties/urban-studies/).
 
-        We welcome collaborations, questions, and conversations about our research and related topics regarding urban inequalities. 
+        We welcome questions, discussions, and collaborations related to our research on urban inequalities!
 
-      email: 
+      email: urbi-bk@tudelft.nl
       phone: 
       address:
-        street:  Julianalaan 134
+        street: Julianalaan 134
         city: Delft
         region: 
         postcode: '2628BL'
@@ -38,7 +36,7 @@ sections:
       #    link: 'https://discourse.gohugo.io'
     
       # Automatically link email and phone or display as text?
-      #autolink: true
+      autolink: true
     
       # Email form provider
       #form:

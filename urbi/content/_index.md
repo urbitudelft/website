@@ -45,7 +45,7 @@ sections:
     content:
       slides:
       - title: Multiscale<br>Urban<br>Inequalities
-        content: 'Our research on urban inequalities across spatial scales.'
+        content: 'How do urban inequalities change across spatial scales?'
         align: center
         background:
           image:
@@ -55,9 +55,9 @@ sections:
           position: center
           color: '#333'
         link:
-          icon: graduation-cap
-          icon_pack: fas
-          text: Explore our research
+          icon: 
+          icon_pack: 
+          text: 'Learn more'
           url: ../project/multiscale-urban-inequalities/
     design:
       # Slide height is automatic unless you force a specific height (e.g. '400px')
