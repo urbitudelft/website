@@ -121,7 +121,7 @@ blocks:
       
       ![Figure showing the spatial context effect of contextual poverty on individual income](images/nbh-effects.jpg#center)
       
-      This empirical finding supports that different mechanisms behind spatial context effects operate at different scales and, therefore, require different analytical scales for their estimation. We developed this idea in more detail in our theoretical paper called ''. 
+      This empirical finding supports that different mechanisms behind spatial context effects operate at different scales and, therefore, require different analytical scales for their estimation. We developed this idea in more detail in our theoretical paper called ['Freedom from the Tyranny of Neighbourhood: Rethinking Socio-Spatial Context Effects'](https://urbi.bk.tudelft.nl/publication/journal-article/petrovic2019freedom/). 
       
       For instance, peer group effects require micro-scale, processes such as stigma require meso scales, while labor-market spatial mismatch requires regional geographies:
 
