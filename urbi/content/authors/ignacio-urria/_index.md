@@ -31,22 +31,22 @@ interests:
 education:
   courses:
     - course: PhD (c) in Urban Studies
-      institution: Faculty of Architecture and the Built Environment, Delft University of Technology
+      institution: Department of Urbanism, Delft University of Technology, The Netherlands
       year: Present
     - course: MSc in Human Geography 
-      institution: Faculty of Geosciences, Utrecht University
+      institution: Faculty of Geosciences, Utrecht University, The Netherlands
       year: 2022
     - course: MSc in Applied Economics
-      institution: Faculty of Economics and Business, Universidad de Chile
+      institution: Faculty of Economics and Business, Universidad de Chile, Chile
       year: 2019
 
 work:
   jobs:
     - job: PhD Researcher 
-      institution: Department of Urbanism, Delft University of Technology
+      institution: Department of Urbanism, Delft University of Technology, The Netherlands
       year: 2023 - Present
     - job: Intern
-      institution: Organisation for Economic Co-operation and Development (OECD)
+      institution: Organisation for Economic Co-operation and Development (OECD), France
       year: 2025
     - job: Coordinator of the Territorial Analysis Unit 
       institution: Department of Studies, Ministry of Social Development and Family, Chile
@@ -55,7 +55,7 @@ work:
       institution: Department of Studies, Ministry of Social Development and Family, Chile
       year: 2020-2022
     - job: Research Assistant
-      institution: Department of Economics, Universidad de Chile and Pontificia Universidad Católica de Chile
+      institution: Department of Economics, Universidad de Chile and Pontificia Universidad Católica de Chile, Chile
       year: 2017-2020
 
 # Social/Academic Networking
