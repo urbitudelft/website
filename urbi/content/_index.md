@@ -33,7 +33,7 @@ sections:
       text: |
         We are a research group within the Department of Urbanism at TU Delft studying the causes, patterns, and consequences of urban inequalities. 
         
-        By combining urban theory with spatial analysis, population data, and computational methods, we investigate how social and spatial inequalities shape cities and and individual life courses.
+        By combining urban theory with spatial analysis, population data, and computational methods, we investigate how social and spatial inequalities shape cities and individual life courses.
 
         {{% cta cta_link="./people/" cta_text="Meet the team →" %}}</p>
     design:
